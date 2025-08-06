@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIPPING POLICY - COLD CULTURE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #000;
+            overflow-x: hidden;
+            line-height: 1.4;
+        }
+        
+        /* Marquee text */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background: black;
+            color: white;
+            padding: 5px 0;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            font-size: 12px;
+        }
+        
+        .marquee-text {
+            white-space: nowrap;
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            padding-right: 50px;
+            letter-spacing: 0.5px;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translate(100%, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 40px 15px;
+            background: white;
+            position: relative;
+            z-index: 100;
+            margin-top: 22px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #000;
+        }
+        
+        .logo img {
+            height: 20px;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon {
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            color: #000;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background: white;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 22px;
+            z-index: 90;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav li {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #000;
+            text-transform: uppercase;
+        }
+        
+        nav li:hover {
+            font-weight: 700;
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        
+        .shipping-content {
+            font-size: 0.75rem;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .shipping-content p {
+            margin-bottom: 15px;
+        }
+        
+        .shipping-section {
+            margin-bottom: 40px;
+        }
+        
+        .shipping-heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 30px 0 15px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        .shipping-fees {
+            margin-top: 20px;
+        }
+        
+        .region {
+            margin-bottom: 30px;
+        }
+        
+        .region-name {
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .shipping-option {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pickup-point {
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .country-list {
+            margin: 5px 0 15px 0;
+            line-height: 1.4;
+        }
+        
+        .divider {
+            border-top: 1px solid #ddd;
+            margin: 30px 0;
+            width: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 50px 40px 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .footer-description {
+            font-size: 0.7rem;
+            line-height: 1.5;
+            max-width: 300px;
+            margin-bottom: 30px;
+            color: #ccc;
+            text-transform: uppercase;
+        }
+        
+        .footer-heading {
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            color: #ccc;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+        
+        .footer-links li:hover {
+            color: #fff;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            header {
+                padding: 30px 20px 10px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .shipping-section {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Marquee text -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS • FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS • FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS
+        </div>
+    </div>
+    
+    <!-- Header -->
+<header>
+        <div class="logo">
+    <img src="Images/Exhibition and Set Deck - 37 - Edited.png" width="220" height="50" alt=""/> </div>
+        <div class="nav-icons">
+            <div class="icon">🔍</div>
+            <div class="icon">👤</div>
+            <div class="icon">🛒</div>
+        </div>
+</header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li>NEW ARRIVALS</li>
+            <li>HOODIES</li>
+            <li>SWEATSHIRTS</li>
+            <li>TEES</li>
+            <li>BOTTOMS</li>
+            <li>ALL PRODUCTS</li>
+            <li>COLLECTIONS</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="page-title">SHIPPING POLICY</h1>
+        
+        <div class="shipping-content">
+            <p>As Soon As You Make The Purchase, You Will Receive A Confirmation E-Mail And Our Team Will Get To Work So That You Receive Your Order As Soon As Possible, If Ever. The Working Days Indicated Below For Each Local Country You Have Not Received Your Order, Please Contact Us Indicating Your Order Number And We Will Review Your Order History To Find A Solution As Soon As Possible. You Will Receive An Email With The Tracking Number After Shipping So You Can Check The Status Of Your Order.</p>
+            
+            <p>Cold Culture Will Not Be Responsible For Delivery Errors Caused When The Delivery Address Entered By The User In The Order Form Does Not Correspond To Reality Or When Some Information Has Been Omitted.</p>
+            
+            <p>During Collection Launches, Black Friday Week And Christmas Due To High Demand Concentrated In A Few Days, It Is Possible That Shipments May Suffer Some Delays.</p>
+        </div>
+        
+        <div class="shipping-section">
+            <h2 class="shipping-heading">SHIPPING FEES</h2>
+            
+            <div class="shipping-fees">
+                <div class="region">
+                    <div class="region-name">SPAIN</div>
+                    <div class="shipping-option">EXPRESS 24/48H - 3.95€ | FREE >60€</div>
+                    <div class="pickup-point">- PICK UP POINT: SPAIN</div>
+                    <div class="shipping-option">EXPRESS 24/48H - 2.95€ | FREE >60€</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">BALEARIC ISLANDS</div>
+                    <div class="shipping-option">EXPRESS 24/48H - 4€ | FREE >70€</div>
+                    <div class="pickup-point">- PICK UP POINT: BALEARIC ISLANDS</div>
+                    <div class="shipping-option">EXPRESS 24/48H - 3.50€ | FREE >70€</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">CANARY ISLANDS</div>
+                    <div class="shipping-option">EXPRESS 24/48H - 8€ | FREE >XXX</div>
+                    <div class="pickup-point">- PICK UP POINT: CANARY ISLANDS</div>
+                    <div class="shipping-option">EXPRESS 24/48H - 6.50€ | FREE >XXX</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">PORTUGAL / AUSTRIA / BELGIUM / FRANCE / GERMANY / ITALY / LUXEMBOURG / GREECE / FINLAND / IRELAND / CZECH REPUBLIC / HUNGARY / ESTONIA / LITHUANIA / BULGARIA / LATVIA / SLOVAKIA / ROMANIA / POLAND / CYPRUS / CROATIA / MALTA</div>
+                    <div class="shipping-option">EUROPEAN EXPRESS 2-5 DAYS - 9.95€ | FREE > 90€</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">UK</div>
+                    <div class="shipping-option">EUROPEAN EXPRESS 2-5 DAYS - 6.95€ | FREE > 69€</div>
+                    <p class="country-list">* Shipments To The United Kingdom May Experience Slight Delays Due To The Current Situation With The European Union, Customs Clearance Procedures May Impact Delivery Times In Some Cases. If You Have Any Questions Regarding Customs Clearance Or Need Help With Your Order Please Don't Hesitate To Contact Us.</p>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">SWEDEN</div>
+                    <div class="shipping-option">EUROPEAN EXPRESS 2-5 DAYS - 60Kr SEK | FREE > 900Kr SEK</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">DENMARK</div>
+                    <div class="shipping-option">EUROPEAN EXPRESS 2-5 DAYS - 75Kr DKK | FREE >675Kr DKK</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">GREENLAND</div>
+                    <div class="shipping-option">EUROPEAN EXPRESS 2-5 DAYS - 935Kr DKK | FREE > 935Kr DKK</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">REST OF EUROPE</div>
+                    <div class="shipping-option">EUROPEAN EXPRESS 3-5 DAYS - 9.95€ | FREE > 90€</div>
+                    <p class="country-list">* Albania, Belarus, Bosnia And Herzegovina, Gibraltar, Guernsey, Guernesey, Isle Of Man, Iceland, Faroe Islands, Jersey Islands, North Macedonia, Mayotte, Moldova, Montenegro, Reunion, Serbia, Svalbard And Jan Mayen, Turkey.</p>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">USA</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 5€/8$ | FREE > $100</div>
+                    <p class="country-list">* HAWAII — INTERNATIONAL EXPRESS 5-10 DAYS - $30 | FREE > $300</p>
+                    <p class="country-list">Due To Recent Changes In U.S. Customs Regulations, Starting April 1, 2023, New Import Requirements Apply To Textiles And Apparel Entering The United States. All International Shipments Containing The Purchase Products Of Clothing Articles.</p>
+                    <p class="country-list">You May Be Required To Provide Your Driver's License Number (DLN) During Customs Clearance. This Is Necessary So That Customs Authorities Can Verify The Identity Of The Importer. Your Package May Be Returned If This Information Is Not Provided.</p>
+                    <p class="country-list">Additionally, All Orders With A Value Exceeding $800 USD Must Now Go Through A Formal Entry Process, Which May Involve Additional Documentation And Customs Fees.</p>
+                    <p class="country-list">You Will Be Notified Before Completing Your Payment If Your Order Is Subject To These Requirements. We Recommend Splitting Your Order Into Smaller Shipments If The Total Value Exceeds $800 USD.</p>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">CANADA</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 9.95$ CAD | FREE > $100 CAD</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">CENTRAL & SOUTH AMERICA / PUERTO RICO</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 9.95$ | FREE > $100</div>
+                    <p class="country-list">* Antigua Y Barbuda, Argentina, Bahamas, Barbados, Belize, Brasil, Islas Caiman, Chile, Colombia, Costa Rica, Dominica, República Dominicana, Ecuador, El Salvador, Guatemala, Honduras, Jamaica, Martinica, México, Antillas Holandesas, Nicaragua, Panamá, Paraguay, Perú, San Cristóbal Y Nieves, Santa Lucía, Guadalupe, Trinidad Y Tobago, Islas Turcas Y Caicos, Uruguay, Venezuela, Islas Vírgenes Británicas, Haití, Antillas, (Indias Occid.), Guadalupe, Anguila, Belice, Granada, Guyana Francesa, Granada, Montserrat, San Vicente Y Las Granadinas, Puerto Rico.</p>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">AUSTRALIA</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - $25 AUD | FREE > $190 AUD</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">NEW ZEALAND</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 25 $ NZD | FREE > 190 $ NZD</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">ISRAEL</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 3-5 DAYS - 40 ILS NIS | FREE > 400 ILS NIS</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">SOUTH KOREA</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 8,750 ₩ KRW | FREE > 175,000 ₩ KRW</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">JAPAN</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 950 ¥ JPY | FREE > 19,500 ¥ JPY</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">CHINA / MACAO / HONG KONG</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 75 ¥ CNY | FREE > 1150 ¥ CNY</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">REST OF ASIA**</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 9.95€ | FREE > 150€</div>
+                    <p class="country-list">* "Cambodia, Laos, Philippines, Taiwan, Thailand, Timor-Leste, Vietnam, Indonesia, Malaysia, Saudi Arabia, Bangladesh, Bahrain, Brunei, Bhutan, Qatar, United Arab Emirates, India, Israel, Jordan, Kuwait, Lebanon, Nepal, Oman, Pakistan, Sri Lanka, Palestinian Territories, Algeria, Egypt, Libya, Morocco, Tunisia, Armenia, Georgia, Azerbaijan.</p>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">SOUTH AFRICA</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 9.95€ | FREE > 150€</div>
+                </div>
+                
+                <div class="region">
+                    <div class="region-name">AFRICA / REST OF THE WORLD***</div>
+                    <div class="shipping-option">INTERNATIONAL EXPRESS 5-10 DAYS - 9.95€ | FREE > 150€</div>
+                    <p class="country-list">* ***Afghanistan, Iraq, Christmas Island, Cocos Islands, Kazakhstan, Kyrgyzstan, Maldives, Mongolia, Myanmar (Burma), Russia, Tajikistan, British Indian Ocean Territory, Turkmenistan, Uzbekistan, Yemen, Angola, Benin, Botswana, Burkina Faso, Burundi, Cape Verde, Cameroon, Chad, Comoros, Congo, Côte D'Ivoire, Eritrea, Eswatini, Ethiopia, Gabon, Gambia, Ghana, Guinea, Equatorial Guinea, Guinea-Bissau, Ascension Island, Kenya, Lesotho, Liberia, Madagascar, Malawi, Mali, Mauritius, Mauritania, Mozambique, Namibia, Niger, Nigeria, Central African Republic, Democratic Republic Of The Congo, Rwanda, Western Sahara, Saint Helena, Sao Tome And Principe, Senegal, Seychelles, Sierra Leone, Somalia, Sudan, Sudan Of The South, Tanzania, Togo, Tristan Da Cunha, Uganda, Djibouti, Zambia, Zimbabwe, Bermuda, US Minor Outlying Islands, Saint Pierre And Miquelon, Caribbean Netherlands, Guyana, Falkland Islands, Fiji, Norfolk Island, Cook Islands, Pitcairn Islands, Solomon Islands, American Samoa, Kiribati, Nauru, Niue, New Caledonia, Papua New Guinea, French Polynesia, Samoa, Tokelau, Tonga, Tuvalu, Vanuatu, Wallis And Futuna, South Georgia And The South Sandwich Islands, French Southern Territories.</p>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <p>At All Times Cold Culture Will Work To Offer The Best Service In Terms Of International Shipments. However, It May Happen That For Some Reason Or Cause Beyond Our Control, An Order May Be Canceled, In Which Case Cold Culture Will Communicate It Within A Period Not Exceeding 24H Working Accompanied By A Refund In The Method Of Payment Used By The Customer For The Purchase.</p>
+            
+            <div class="shipping-heading">CUSTOMS</div>
+            <p>NO COUNTRY IS SUBJECT TO CUSTOMS FEES. ALL DUTIES ARE FULLY COVERED BY COLD CULTURE</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">COLD CULTURE</div>
+                <div class="footer-description">CREATING AN INTERNATIONAL MOVEMENT, INSPIRED BY THE AESTHETICS OF THE STREET STYLE FROM WORLDWIDE CITIES.</div>
+            </div>
+            
+            <div>
+                <div class="footer-heading">ABOUT</div>
+                <ul class="footer-links">
+                    <li>FAQS</li>
+                    <li>CONTACT FORM</li>
+                    <li>SHIPPING POLICY</li>
+                    <li>CAREERS</li>
+                    <li>LOYALTY</li>
+                </ul>
+            </div>
+            
+            <div>
+                <div class="footer-heading">LEGAL</div>
+                <ul class="footer-links">
+                    <li>RETURN & EXCHANGE POLICY</li>
+                    <li>PRIVACY POLICY</li>
+                    <li>COOKIE POLICY</li>
+                    <li>TERMS OF SERVICE</li>
+                    <li>LEGAL NOTICE</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

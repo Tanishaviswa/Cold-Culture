@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESSENTIAL HOODIE BLACK - COLD CULTURE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* Marquee text */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background: black;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .marquee-text {
+            white-space: nowrap;
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            padding-right: 50px;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translate(100%, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 40px 20px;
+            background: white;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .icon:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav li {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        nav li:hover {
+            font-weight: 700;
+        }
+        
+        /* Product details */
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 60px 40px;
+            gap: 60px;
+        }
+        
+        .product-gallery {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            gap: 20px;
+        }
+        
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .thumbnail {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #f5f5f5;
+            cursor: pointer;
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .main-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: #f5f5f5;
+        }
+        
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-details {
+            padding-top: 30px;
+        }
+        
+        .product-new-tag {
+            display: inline-block;
+            background: black;
+            color: white;
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+        
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .product-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .product-sizes {
+            margin-bottom: 30px;
+        }
+        
+        .size-heading {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .size-option {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .size-option:hover {
+            border-color: black;
+        }
+        
+        .size-option.selected {
+            background: black;
+            color: white;
+            border-color: black;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            padding: 15px;
+            background: black;
+            color: white;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            background: #333;
+        }
+        
+        .product-features {
+            margin-top: 40px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        
+        .feature-icon {
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 60px 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-description {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            max-width: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-heading {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        
+        .footer-links li:hover {
+            text-decoration: underline;
+        }
+        
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            outline: none;
+            background: #333;
+            color: white;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: white;
+            color: black;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .shipping-info {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .shipping-item {
+            text-align: center;
+            max-width: 200px;
+        }
+        
+        .shipping-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .shipping-description {
+            font-size: 0.7rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Marquee text -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS • FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS • FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="logo" onclick="window.location.href='index.html'">COLD CULTURE</div>
+        <div class="nav-icons">
+            <div class="icon">🔍</div>
+            <div class="icon">👤</div>
+            <div class="icon">🛒</div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li>NEW ARRIVALS</li>
+            <li>HOODIES</li>
+            <li>SWEATSHIRTS</li>
+            <li>TEES</li>
+            <li>BOTTOMS</li>
+            <li>ACCESSORIES</li>
+            <li>ALL PRODUCTS</li>
+        </ul>
+    </nav>
+    
+    <!-- Product details -->
+    <div class="product-container">
+        <!-- Product gallery -->
+        <div class="product-gallery">
+            <div class="thumbnails">
+                <div class="thumbnail">
+                    <img src="file:///C|/Users/Kavya G/Downloads/DOWN TO LUCK HOODIE SMOKEY GREY - XXL.jpeg" alt="ESSENTIAL HOODIE Grey - Thumbnail 1" width="81" height="100">
+                </div>
+                <div class="thumbnail">
+                    <img src="file:///C|/Users/Kavya G/Downloads/NEW ARRIVALS.jpeg" alt="ESSENTIAL HOODIE BLACK - Thumbnail 2">
+                </div>
+                <div class="thumbnail">
+                    <img src="file:///C|/Users/Kavya G/Downloads/download.jpeg" alt="ESSENTIAL HOODIE BLACK - Thumbnail 3">
+                </div>
+                <div class="thumbnail">
+                    <img src="file:///C|/Users/Kavya G/Downloads/Metro Chill.jpeg" alt="ESSENTIAL HOODIE BLACK - Thumbnail 4">
+                </div>
+            </div>
+            
+            <div class="main-image">
+                <img src="Images/essential-knit-astorath-red-878778.jpg" alt="ESSENTIAL HOODIE BLACK - Main Image">
+            </div>
+        </div>
+        
+        <!-- Product info -->
+        <div class="product-details">
+            <div class="product-new-tag">NEW IN</div>
+            <h1 class="product-title">ESSENTIAL KNIT ASTORATH RED</h1>
+            <div class="product-price">Rs. 8,300.00</div>
+            
+            <div class="product-description">
+          The Essential Hoodie in classic astorath red is a foundation piece for any wardrobe. Made from premium cotton blend with a soft brushed interior, this hoodie offers the perfect balance of comfort and style. Features include a relaxed fit, ribbed cuffs and hem, adjustable drawstring hood, and a kangaroo pocket. </div>
+            
+            <div class="product-sizes">
+                <div class="size-heading">SIZE</div>
+                <div class="size-options">
+                    <div class="size-option">S</div>
+                    <div class="size-option selected">M</div>
+                    <div class="size-option">L</div>
+                    <div class="size-option">XL</div>
+                </div>
+            </div>
+            
+            <button class="add-to-cart">ADD TO CART</button>
+            
+            <div class="product-features">
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span>Premium 400 GSM cotton blend fabric</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span>Relaxed fit for everyday comfort</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span>Ribbed cuffs and hem for durability</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span>Machine washable at 30°C</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span>Model is 185cm and wears size M</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">COLD CULTURE™</div>
+                <div class="footer-description">CREATING AN INTERNATIONAL MOVEMENT, INSPIRED BY THE AESTHETICS OF THE STREET STYLE FROM WORLDWIDE CITIES.</div>
+            </div>
+            
+            <div>
+                <div class="footer-heading">ABOUT</div>
+                <ul class="footer-links">
+                    <li>FAQS</li>
+                    <li>CONTACT FORM</li>
+                    <li>SHIPPING POLICY</li>
+                    <li>CAREERS</li>
+                    <li>INTERNSHIPS</li>
+                </ul>
+            </div>
+            
+            <div>
+                <div class="footer-heading">LEGAL</div>
+                <ul class="footer-links">
+                    <li>RETURN & EXCHANGE POLICY</li>
+                    <li>PRIVACY POLICY</li>
+                    <li>COOKIE POLICY</li>
+                    <li>TERMS OF SERVICE</li>
+                    <li>LEGAL NOTICE</li>
+                </ul>
+            </div>
+            
+            <div>
+                <div class="footer-heading">GET 10% OFF ON YOUR FIRST ORDER</div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="E-mail">
+                    <button>GET YOUR DISCOUNT</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="shipping-info">
+            <div class="shipping-item">
+                <div class="shipping-title">FREE WORLDWIDE SHIPPING</div>
+                <div class="shipping-description">Check conditions here.</div>
+            </div>
+            
+            <div class="shipping-item">
+                <div class="shipping-title">EASY EXCHANGES & RETURNS</div>
+                <div class="shipping-description">Click here for more info.</div>
+            </div>
+            
+            <div class="shipping-item">
+                <div class="shipping-title">SECURE PAYMENT</div>
+                <div class="shipping-description">Visa, Mastercard, Paypal, and more.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to change main image when thumbnail is clicked
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                const mainImage = document.querySelector('.main-image img');
+                mainImage.src = this.querySelector('img').src.replace('100/100', '600/800');
+            });
+        });
+        
+        // Size selection
+        document.querySelectorAll('.size-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.size-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>

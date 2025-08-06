@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLD CULTURE - Worldwide Tribe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* Marquee text */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background: black;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .marquee-text {
+            white-space: nowrap;
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            padding-right: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translate(100%, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 40px 20px;
+            background: white;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #000;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            color: #000;
+        }
+        
+        .icon:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background: white;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 38px;
+            z-index: 90;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav li {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #000;
+            text-transform: uppercase;
+        }
+        
+        nav li:hover {
+            font-weight: 700;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .hero-image {
+            flex: 1;
+            background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1024&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 70vh;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-text-container {
+            margin-bottom: 20px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .hero-button {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-block;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        
+        .hero-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ccc;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Tribe Rewards Section */
+        .tribe-rewards {
+            background-color: #f5f5f5;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            color: #666;
+            letter-spacing: 0.5px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Rewards Table */
+        .rewards-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 1px solid #000;
+        }
+        
+        .rewards-table th, .rewards-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+        }
+        
+        .rewards-table th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            background-color: #f9f9f9;
+        }
+        
+        .rewards-table td {
+            font-size: 0.9rem;
+        }
+        
+        .rewards-table th:first-child, .rewards-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .rewards-table .checkmark {
+            font-size: 1rem;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        /* Journey Section */
+        .journey-section {
+            background-color: #e5e5e5;
+            padding: 80px 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .journey-content {
+            max-width: 600px;
+        }
+        
+        .journey-image {
+            width: 200px;
+            margin: 30px 0;
+        }
+        
+        /* Redeem Section */
+        .redeem-section {
+            background-color: #fff;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .redeem-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .redeem-option {
+            border: 1px solid #000;
+            padding: 30px;
+            width: 220px;
+            transition: all 0.3s ease;
+        }
+        
+        .redeem-option:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .redeem-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .redeem-points {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .redeem-option:hover .redeem-points {
+            color: #ccc;
+        }
+        
+        .redeem-button {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 15px 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-bottom: 40px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        
+        .redeem-button:hover {
+            background-color: #333;
+        }
+        
+        /* Refer Section */
+        .refer-section {
+            display: flex;
+            background-color: #f5f5f5;
+            flex-wrap: wrap;
+        }
+        
+        .refer-image {
+            flex: 1;
+            background-image: url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1024&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+            min-width: 300px;
+        }
+        
+        .refer-content {
+            flex: 1;
+            padding: 60px 40px;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 300px;
+        }
+        
+        .refer-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .refer-text {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 20px;
+            max-width: 400px;
+            line-height: 1.6;
+        }
+        
+        .refer-button {
+            align-self: flex-start;
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        
+        .refer-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 80px 40px 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-description {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            max-width: 300px;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+        
+        .footer-heading {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links li:hover {
+            color: #fff;
+        }
+        
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+            outline: none;
+            background: #333;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .newsletter-form input::placeholder {
+            color: #999;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: white;
+            color: black;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #ddd;
+        }
+        
+        .shipping-info {
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .shipping-item {
+            text-align: center;
+            max-width: 200px;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .shipping-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .shipping-description {
+            font-size: 0.7rem;
+            color: #ccc;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 50px 20px 15px;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-section {
+                flex-direction: column;
+            }
+            
+            .hero-content {
+                padding: 60px 20px;
+                order: 2;
+            }
+            
+            .hero-image {
+                min-height: 300px;
+                order: 1;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .marquee-text {
+                font-size: 0.7rem;
+            }
+            
+            nav li {
+                font-size: 0.7rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .redeem-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .shipping-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            .shipping-item {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Marquee text -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS • FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS • FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="logo"><img src="Images/Exhibition and Set Deck - 37 - Edited.png" width="220" height="50" alt=""/></div>
+        <div class="nav-icons">
+            <div class="icon">🔍</div>
+            <div class="icon">👤</div>
+            <div class="icon">🛒</div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li>NEW ARRIVALS</li>
+            <li>HOODIES</li>
+            <li>SWEATSHIRTS</li>
+            <li>TEES</li>
+            <li>BOTTOMS</li>
+            <li>ALL PRODUCTS</li>
+            <li>COLLECTIONS</li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title"><img src="Images/2cdde11a-83ce-4264-8fad-50adc7af11a3.png" width="500" height="" alt=""/></h1>
+            <div class="hero-text-container">
+              <p class="hero-text">1 POINT FOR EVERY $1</p>
+                <p class="hero-text">UNLOCK EXCLUSIVE REWARDS</p>
+                <p class="hero-text">EARN & REDEEM POINTS</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="hero-button">JOIN NOW</button>
+                <button class="hero-button">LOGIN</button>
+            </div>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <!-- Tribe Rewards Section -->
+    <section class="tribe-rewards">
+        <h2 class="section-title">TRIBE REWARDS</h2>
+        <p class="section-subtitle">THE MORE POINTS YOU EARN, THE MORE REWARDS YOU GET</p>
+        
+        <table class="rewards-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>EXPLORER<br>0 points</th>
+                    <th>ADVENTURER<br>500 points</th>
+                    <th>LEGEND<br>1000 points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ON WELCOME DELIVERY</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+                <tr>
+                    <td>SURPRISE 5% X 2 CREDIT</td>
+                    <td></td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+                <tr>
+                    <td>CASH REWARDS</td>
+                    <td></td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+                <tr>
+                    <td>NEW DROPS ACCESS</td>
+                    <td></td>
+                    <td></td>
+                    <td class="checkmark">✓</td>
+                </tr>
+                <tr>
+                    <td>EARLY ACCESS TO DROPS</td>
+                    <td></td>
+                    <td></td>
+                    <td class="checkmark">✓</td>
+                </tr>
+                <tr>
+                    <td>PRIORITY ORDERS & CASES</td>
+                    <td></td>
+                    <td></td>
+                    <td class="checkmark">✓</td>
+                </tr>
+                <tr>
+                    <td>EXCLUSIVE SHIPMENTS</td>
+                    <td></td>
+                    <td></td>
+                    <td class="checkmark">✓</td>
+                </tr>
+                <tr>
+                    <td>FREE REPAIRS</td>
+                    <td></td>
+                    <td></td>
+                    <td class="checkmark">✓</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey-section">
+        <div class="journey-content">
+            <h2 class="section-title">START THE JOURNEY</h2>
+<p class="section-subtitle">START THE JOURNEY RIGHT AWAY AND DISCOVER YOUR COLD CULTURE TRIBE. YOU HAVE A TRIBE, YOU ARE NOT ALONE. JOIN THOUSANDS OF COLD CULTURE MEMBERS.</p>
+    <img src="Images/PASSPORT-STAMPS-1-3.gif" alt="" width="600" height="600"/>
+</section>
+
+    <!-- Redeem Section -->
+    <section class="redeem-section">
+        <h2 class="section-title">WAYS TO REDEEM</h2>
+        
+        <div class="redeem-options">
+            <div class="redeem-option">
+                <div class="redeem-amount">$5 OFF</div>
+                <div class="redeem-points">500 Points</div>
+            </div>
+            <div class="redeem-option">
+                <div class="redeem-amount">$10 OFF</div>
+                <div class="redeem-points">1000 Points</div>
+            </div>
+            <div class="redeem-option">
+                <div class="redeem-amount">$15 OFF</div>
+                <div class="redeem-points">2000 Points</div>
+            </div>
+        </div>
+        
+        <button class="redeem-button">REDEEM MY POINTS</button>
+    </section>
+
+    <!-- Refer Section -->
+    <section class="refer-section">
+        <div class="refer-image"></div>
+        <div class="refer-content">
+            <h2 class="refer-title">GIVE $15 & GET 500 POINTS</h2>
+            <p class="refer-text">GIVE $15 OFF YOUR FRIEND'S FIRST ORDER OVER $75 AND GET 500 POINTS FOR YOUR COLD CULTURE ACCOUNT.</p>
+            <button class="refer-button">REFER A FRIEND</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">COLD CULTURE™</div>
+                <div class="footer-description">CREATING AN INTERNATIONAL MOVEMENT, INSPIRED BY THE AESTHETICS OF THE STREET STYLE FROM WORLDWIDE CITIES.</div>
+            </div>
+            
+            <div>
+                <div class="footer-heading">ABOUT</div>
+                <ul class="footer-links">
+                    <li>FAQS</li>
+                    <li>CONTACT FORM</li>
+                    <li>SHIPPING POLICY</li>
+                    <li>CAREERS</li>
+                    <li>INTERNSHIPS</li>
+                </ul>
+            </div>
+            
+            <div>
+                <div class="footer-heading">LEGAL</div>
+                <ul class="footer-links">
+                    <li>RETURN & EXCHANGE POLICY</li>
+                    <li>PRIVACY POLICY</li>
+                    <li>COOKIE POLICY</li>
+                    <li>TERMS OF SERVICE</li>
+                    <li>LEGAL NOTICE</li>
+                </ul>
+            </div>
+            
+            <div>
+                <div class="footer-heading">GET 10% OFF ON YOUR FIRST ORDER</div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="E-mail">
+                    <button>GET YOUR DISCOUNT</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="shipping-info">
+            <div class="shipping-item">
+                <div class="shipping-title">FREE WORLDWIDE SHIPPING</div>
+                <div class="shipping-description">Check conditions here.</div>
+            </div>
+            
+            <div class="shipping-item">
+                <div class="shipping-title">EASY EXCHANGES & RETURNS</div>
+                <div class="shipping-description">Click here for more info.</div>
+            </div>
+            
+            <div class="shipping-item">
+                <div class="shipping-title">SECURE PAYMENT</div>
+                <div class="shipping-description">Visa, Mastercard, Paypal, and more.</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

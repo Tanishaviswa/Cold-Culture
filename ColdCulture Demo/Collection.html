@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLD CULTURE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Marquee text */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background: black;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .marquee-text {
+            white-space: nowrap;
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            padding-right: 50px;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translate(100%, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 40px 20px;
+            background: white;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #000;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            color: #000;
+        }
+        
+        .icon:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav li {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #000;
+        }
+        
+        nav li:hover {
+            font-weight: 700;
+        }
+        
+        /* Main content styles */
+        .main-content {
+            padding: 50px 20px 20px;
+            background-color: #000;
+        }
+        
+        .collections-header {
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Collections grid */
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .collection-item {
+            position: relative;
+            aspect-ratio: 1/1;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .collection-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .collection-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .collection-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 60px 40px;
+            border-top: 1px solid #222;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-description {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            max-width: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-heading {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        
+        .footer-links li:hover {
+            text-decoration: underline;
+        }
+        
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            outline: none;
+            background: #333;
+            color: white;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: white;
+            color: black;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .shipping-info {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .shipping-item {
+            text-align: center;
+            max-width: 200px;
+        }
+        
+        .shipping-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .shipping-description {
+            font-size: 0.7rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="marquee-container">
+        <div class="marquee-text">
+            FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS • FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS • FREE SHIPPING TO INDIA ON ORDERS +₹12300 • EASY RETURNS
+        </div>
+    </div>
+    
+    <!-- Header -->
+<header>
+        <div class="logo"><img src="Images/Exhibition and Set Deck - 37 - Edited.png" width="220" height="50" alt=""/></div>
+        <div class="nav-icons">
+            <div class="icon">🔍</div>
+            <div class="icon">👤</div>
+            <div class="icon">🛒</div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li>NEW ARRIVALS</li>
+            <li>HOODIES</li>
+            <li>SWEATSHIRTS</li>
+            <li>TEES</li>
+            <li>BOTTOMS</li>
+            <li>ALL PRODUCTS</li>
+            <li>COLLECTIONS</li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="collections-header">
+            <h1>Collections and drops</h1>
+            <p class="subtitle">Discover our latest collections and drops.</p>
+        </div>
+
+        <div class="collections-grid">
+            <!-- Row 1 -->
+            <div class="collection-item">
+              <img src="Images/9e4c412a-a5e8-4599-b66c-ebdac9d74042.jpg" width="500" height="615" alt=""/>
+<div class="collection-title">S22S</div>
+            </div>
+            <div class="collection-item">
+                <img src="Images/0bf41bbe-3e10-4bd5-8aa4-98975b15a24e.jpg" width="500" height="615" alt="Cold Airlines Collection"/>
+<div class="collection-title">Cold Airlines</div>
+            </div>
+            <div class="collection-item">
+                <img src="Images/a4eb3867-52c1-477f-946d-85b3f0b4fbd1.jpg" width="500" height="615" alt="Script Collection"/>
+<div class="collection-title">Script</div>
+            </div>
+            
+            <!-- Row 2 -->
+            <div class="collection-item">
+                <img src="Images/f904499d-9ae4-4f9b-99d0-02780a8c68d1.jpg" width="500" height="615" alt="Spin-Off Collection"/>
+<div class="collection-title">Spin-Off</div>
+            </div>
+            <div class="collection-item">
+                <img src="Images/a1787c32-670f-4df1-bfbc-98ef60cfece7.jpg" width="500" height="615" alt=""/>
+<div class="collection-title">Cold Bears</div>
+            </div>
+            <div class="collection-item">
+                <img src="Images/4d0b1730-ad4b-4498-834f-c535f20a1454.jpg" width="500" height="615" alt=""/>
+<div class="collection-title">???</div>
+            </div>
+            
+            <!-- Row 3 -->
+            <div class="collection-item">
+                <img src="Images/cf1682dd-1536-4bb2-b761-e153cc6d40f1.jpg" width="500" height="625" alt="WINTER24 COLLECTION"/>
+<div class="collection-title">WINTER24</div>
+            </div>
+            <div class="collection-item">
+                <img src="Images/1881e72c-a14f-42a2-8895-6665744212cb.jpg" width="500" height="625" alt="SUNFADED COLLECTION"/>
+<div class="collection-title">SUNFADED</div>
+            </div>
+            <div class="collection-item">
+                <img src="Images/71dd41d2-b07c-4e39-a025-a460aaa06a36.jpg" width="500" height="625" alt="GOLDEN LOBSTER COLLECTION"/>
+<div class="collection-title">GOLDEN LOBSTER</div>
+            </div>
+            
+            <!-- Row 4 -->
+            <div class="collection-item">
+                <img src="Images/ab7383b7-f1c3-407b-b450-40ee8244a9b2.jpg" width="500" height="625" alt="FW23 VISION & MISSION"/>
+<div class="collection-title">FW23 VISION & MISSION</div>
+            </div>
+            <div class="collection-item">
+                <img src="Images/625ff0ba-563f-4684-bb96-cf177368a2d5.jpg" width="500" height="625" alt="A NIGHT ON EARTH"/>
+<div class="collection-title">A NIGHT ON EARTH</div>
+            </div>
+            <div class="collection-item">
+                <img src="Images/c860be6a-f1e3-4f6b-b71b-41ad810bf0de.jpg" width="500" height="625" alt=""/>
+<div class="collection-title">Jewelry</div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">COLD CULTURE™</div>
+                <div class="footer-description">CREATING AN INTERNATIONAL MOVEMENT, INSPIRED BY THE AESTHETICS OF THE STREET STYLE FROM WORLDWIDE CITIES.</div>
+            </div>
+            
+            <div>
+                <div class="footer-heading">ABOUT</div>
+                <ul class="footer-links">
+                    <li>FAQS</li>
+                    <li>CONTACT FORM</li>
+                    <li>SHIPPING POLICY</li>
+                    <li>CAREERS</li>
+                    <li>INTERNSHIPS</li>
+                </ul>
+            </div>
+            
+            <div>
+                <div class="footer-heading">LEGAL</div>
+                <ul class="footer-links">
+                    <li>RETURN & EXCHANGE POLICY</li>
+                    <li>PRIVACY POLICY</li>
+                    <li>COOKIE POLICY</li>
+                    <li>TERMS OF SERVICE</li>
+                    <li>LEGAL NOTICE</li>
+                </ul>
+            </div>
+            
+            <div>
+                <div class="footer-heading">GET 10% OFF ON YOUR FIRST ORDER</div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="E-mail">
+                    <button>GET YOUR DISCOUNT</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="shipping-info">
+            <div class="shipping-item">
+                <div class="shipping-title">FREE WORLDWIDE SHIPPING</div>
+                <div class="shipping-description">Check conditions here.</div>
+            </div>
+            
+            <div class="shipping-item">
+                <div class="shipping-title">EASY EXCHANGES & RETURNS</div>
+                <div class="shipping-description">Click here for more info.</div>
+            </div>
+            
+            <div class="shipping-item">
+                <div class="shipping-title">SECURE PAYMENT</div>
+                <div class="shipping-description">Visa, Mastercard, Paypal, and more.</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
